@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebOS</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!--
+    <div class="taskbar">
+        <div id="start">
+            Start
+        </div>
+    </div>
+    -->
+    <br><br>
+    <div class="desktop">
+        <figure>
+            <img src="img/devices/computer.svg" class="desktopicon" onclick="show('welcome')" draggable="false">
+            <figcaption>About</figcaption>
+        </figure>
+        <figure>
+            <img src="img/emblems/emblem-documents-symbolic.svg" class="desktopicon" onclick="show('textedit')" draggable="false">
+            <figcaption>TextEdit</figcaption>
+        </figure>
+    </div>
+    <div id="welcome">
+        <div id="welcomeheader">Welcome to WebOS! <div class="close" onclick="remove('welcome')"></div></div>
+        <br>
+        <h1>Welcome to WebOS!</h1>
+        <p>WebOS is the ultimate operating system<br>in your web browser!</p>
+        <h3>WebOS is currently in beta!</h3>
+        <p>Please report bugs on the GitHub!</p>
+        <p id="github">[GITHUB LINK HERE]</p>
+        <p id="agent"></p>
+        <p id="vertext">WebOS version beta 0.1</p>
+    </div>
+    <div id="textedit">
+        <div id="texteditheader">TextEdit <div class="close" onclick="remove('textedit')"></div></div>
+        <br><br>
+        <button onclick="saveTextAsFile(text.value,'file.txt')">Save</button>
+        <button id="load">Load</button>
+        <textarea id="text" name="text" rows="12" cols="50"></textarea>
+    </div>
+</body>
+<script>
+    function readSingleFile(evt) {
+        //Retrieve the first (and only!) File from the FileList object
+        var f = evt.target.files[0];
+
+        if (f) {
+            var r = new FileReader();
+            r.onload = function (e) {
+                var contents = e.target.result;
+                document.getElementById("ReadResult").innerHTML = contents;
+            }
+            r.readAsText(f);
+            } else {
+            alert("Failed to load file");
+            }
+        }
+
+    document.getElementById('load').addEventListener('change', readSingleFile, false);
+    let agent = navigator.userAgent
+    document.getElementById("agent").innerHTML = agent
+    function show(id){
+        document.getElementById(id).style = "display: block;"
+    }
+    function remove(id){
+        document.getElementById(id).style = "display: none;"
+    }
+    // Make the DIV element draggable:
+    dragElement(document.getElementById("welcome"));
+    dragElement(document.getElementById("textedit"));
+
+    function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(elmnt.id + "header")) {
+        // if present, the header is where you move the DIV from:
+        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+        // otherwise, move the DIV from anywhere inside the DIV:
+        elmnt.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        // set the element's new position:
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        // stop moving when mouse button is released:
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+    }   
+    function saveTextAsFile(textToWrite, fileNameToSaveAs)
+    {
+    var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'}); 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    if (window.webkitURL != null)
+    {
+    // Chrome allows the link to be clicked
+    // without actually adding it to the DOM.
+    downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    }
+    else
+    {
+    // Firefox requires the link to be added to the DOM
+    // before it can be clicked.
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    }
+    
+    downloadLink.click();
+    }
+</script>
+</html>
