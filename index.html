@@ -8,22 +8,14 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <!--
-    <div class="taskbar">
-        <div id="start">
-            Start
-        </div>
-    </div>
-    -->
     <br><br>
+    <div id="warning">
+        <h1>WebOS is designed for 1080p screens.</h1>
+    </div>
     <div class="desktop">
         <figure>
             <img src="img/devices/computer.svg" class="desktopicon" onclick="show('welcome')" draggable="false">
             <figcaption>About</figcaption>
-        </figure>
-        <figure>
-            <img src="img/emblems/emblem-documents-symbolic.svg" class="desktopicon" onclick="show('textedit')" draggable="false">
-            <figcaption>TextEdit</figcaption>
         </figure>
     </div>
     <div id="welcome">
@@ -35,7 +27,7 @@
         <p>Please report bugs on the GitHub!</p>
         <a href="https://github.com/breadteleporter/webos"><p id="github">Github</p></a>
         <p id="agent"></p>
-        <p id="vertext">WebOS version beta 0.1</p>
+        <p id="vertext">WebOS version beta 0.2</p>
     </div>
     <div id="textedit">
         <div id="texteditheader">TextEdit <div class="close" onclick="remove('textedit')"></div></div>
@@ -44,8 +36,45 @@
         <button id="load">Load</button>
         <textarea id="text" name="text" rows="12" cols="50"></textarea>
     </div>
+    <div id="paint">
+        <div id="paintheader">Paint <div class="close" onclick="remove('paint')"></div></div>
+        <br><br>
+        <iframe src="https://jspaint.app"></iframe>
+    </div>
+    <div id="tetris">
+        <div id="tetrisheader">Tetris <div class="close" onclick="remove('tetris')"></div></div>
+        <br><br>
+        <embed src="apps/tetris.html" style="width: 100%; height: 95%;"></embed>
+    </div>
+    <div id="calc">
+        <div id="calcheader">Calculator <div class="close" onclick="remove('calc')"></div></div>
+        <br><br>
+        <embed src="apps/calc.html" style="width: 100%; height: 95%;"></embed>
+    </div>
+    <div class="startmenu" id="startmenu">
+        <p onclick="show('welcome')"id="webosstarttext">WebOS</p>
+        <p onclick="show('paint')">Paint</p>
+        <p onclick="show('textedit')">TextEdit</p>
+        <p onclick="show('tetris')">Tetris</p>
+        <p onclick="show('calc')">Calculator</p>
+    </div>
+    <div class="taskbar">
+        <button id="startbuttonshow" onclick="showstart()">Start</button>
+        <button id="startbuttonhide" onclick="hidestart()">Start</button>
+    </div>
 </body>
 <script>
+    // This is a dumb solution, but it works so I dont care.
+    function showstart(){
+        show("startmenu")
+        remove("startbuttonshow")
+        show("startbuttonhide")
+    }
+    function hidestart(){
+        remove("startmenu")
+        show("startbuttonshow")
+        remove("startbuttonhide")
+    }
     function readSingleFile(evt) {
         //Retrieve the first (and only!) File from the FileList object
         var f = evt.target.files[0];
@@ -74,6 +103,9 @@
     // Make the DIV element draggable:
     dragElement(document.getElementById("welcome"));
     dragElement(document.getElementById("textedit"));
+    dragElement(document.getElementById("paint"));
+    dragElement(document.getElementById("tetris"));
+    dragElement(document.getElementById("calc"));
 
     function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
