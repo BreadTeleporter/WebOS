@@ -333,3 +333,18 @@ button:hover{
     margin-bottom: 5px;
     cursor: grab;
 }
+
+#clock{
+    display: block;
+    z-index: 1000;
+    color: white;
+    position: absolute;
+    right: 0;
+}
+
+#profile{
+    float: right;
+    border: 1px;
+    border-radius: 10px;
+    margin: 2px;
+}
