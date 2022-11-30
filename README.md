@@ -1,7 +1,7 @@
 # WebOS
 WebOS is the ultimate operating system for your web browser.
 
-## What is WebOS
+## What is WebOS?
 WebOS is desinged to be the best desktop environment in your web browser.
 
 WebOS has many programs, like:
@@ -9,6 +9,7 @@ WebOS has many programs, like:
 * Calculator
 * Text Editor
 * Tetris
+
 And many more
 
 ## How do I use WebOS?
