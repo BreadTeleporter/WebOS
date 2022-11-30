@@ -16,7 +16,7 @@
     </div>
     <div class="desktop">
         <figure>
-            <img src="img/devices/computer.svg" class="desktopicon" onclick="show('welcome')" draggable="false">
+            <img src="img/devices/computer.svg" class="desktopicon" onclick="show('welcome', 'yes')" draggable="false">
             <figcaption>About</figcaption>
         </figure>
     </div>
@@ -55,11 +55,11 @@
     </div>
     <div class="startmenu" id="startmenu">
         <img src="img/profile.png" width="64" id="profile">
-        <p onclick="show('welcome')"id="webosstarttext">WebOS</p>
-        <p onclick="show('paint')">Paint</p>
-        <p onclick="show('textedit')">TextEdit</p>
-        <p onclick="show('tetris')">Tetris</p>
-        <p onclick="show('calc')">Calculator</p>
+        <p onclick="show('welcome', 'yes')"id="webosstarttext">WebOS</p>
+        <p onclick="show('paint', 'yes')">Paint</p>
+        <p onclick="show('textedit', 'yes')">TextEdit</p>
+        <p onclick="show('tetris', 'yes')">Tetris</p>
+        <p onclick="show('calc', 'yes')">Calculator</p>
     </div>
     <div class="taskbar">
         <button id="startbuttonshow" onclick="showstart()">Start</button>
@@ -73,13 +73,13 @@
     }, false);
     // This is a dumb solution, but it works so I dont care.
     function showstart(){
-        show("startmenu")
+        show("startmenu", "no")
         remove("startbuttonshow")
-        show("startbuttonhide")
+        show("startbuttonhide", "no")
     }
     function hidestart(){
         remove("startmenu")
-        show("startbuttonshow")
+        show("startbuttonshow", "no")
         remove("startbuttonhide")
     }
     function readSingleFile(evt) {
@@ -101,7 +101,10 @@
     document.getElementById('load').addEventListener('change', readSingleFile, false);
     let agent = navigator.userAgent
     document.getElementById("agent").innerHTML = agent
-    function show(id){
+    function show(id, start){
+        if (start == "yes"){
+            hidestart()
+        }
         document.getElementById(id).style = "display: block;"
     }
     function remove(id){
