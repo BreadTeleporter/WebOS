@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        overflow: hidden;
+        color: white;
+    }
+    #log{
+        background-color: #150E66;
+        color: white;
+        padding: 5px;
+        font-family: 'Courier New', Courier, monospace;
+        height: 50vh;
+        width: 100%;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+    #code{
+        color: white;
+        padding: 5x;
+        font-family: 'Courier New', Courier, monospace;
+        height: 50vh;
+        width: 100%;
+        background-color: black;
+    }
+    textarea{
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+    }
+    button{
+        background-color: darkslategrey;
+        font-size: 20px;
+        border-style: none;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: grey;
+    }
+    button:active{
+        background-color: darkgrey;
+    }
+    textarea{
+        border-width: 0px;
+        background-color: darkslategray;
+    }
+</style>
+<body>
+    <div id="log">
+
+    </div>
+    <div id="code">
+        <button id="runbutton" onclick="run()">Run</button>
+        <textarea id="codeinput" name="text" rows="12" cols="50"></textarea>
+    </div>
+</body>
+<script>
+    (function () {
+        var old = console.log;
+        var logger = document.getElementById('log');
+        console.log = function (message) {
+            if (typeof message == 'object') {
+                logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
+            } else {
+                logger.innerHTML += message + '<br />';
+            }
+        }
+    })();
+    function run() {
+    var el = document.getElementById('codeinput');
+    var scriptText = el.value;
+    var oldScript = document.getElementById('scriptContainer');
+    var newScript;
+
+    if (oldScript) {
+      oldScript.parentNode.removeChild(oldScript);
+    }
+
+    newScript = document.createElement('script');
+    newScript.id = 'scriptContainer';
+    newScript.text = el.value;
+    document.body.appendChild(newScript);
+    }
+</script>
+</html>
