@@ -58,6 +58,11 @@
         <br><br>
         <embed src="apps/js.html" style="width: 100%; height: 95%;"></embed>
     </div>
+    <div id="hexgl">
+        <div id="hexglheader">HexGL <div class="close" onclick="remove('hexgl')"></div></div>
+        <br><br>
+        <embed src="http://hexgl.bkcore.com/play/" style="width: 100%; height: 95%;"></embed>
+    </div>
     <div class="startmenu" id="startmenu">
         <img src="img/profile.png" width="64" id="profile">
         <p onclick="show('welcome', 'yes')"id="webosstarttext">WebOS</p>
@@ -66,6 +71,7 @@
         <p onclick="show('tetris', 'yes')">Tetris</p>
         <p onclick="show('calc', 'yes')">Calculator</p>
         <p onclick="show('js', 'yes')">JavaScript</p>
+        <p onclick="show('hexgl', 'yes')">HexGL</p>
     </div>
     <div class="taskbar">
         <button id="startbuttonshow" onclick="showstart()">Start</button>
@@ -123,6 +129,7 @@
     dragElement(document.getElementById("tetris"));
     dragElement(document.getElementById("calc"));
     dragElement(document.getElementById("js"));
+    dragElement(document.getElementById("hexgl"));
 
 
     function dragElement(elmnt) {

@@ -380,3 +380,28 @@ button:hover{
     margin-bottom: 5px;
     cursor: grab;
 }
+#hexgl{
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 1512px;
+    background-color: #555;
+    height: 768px;
+    border: .5px;
+    border-color: black;
+    border-style: solid;
+    box-shadow: 2.5px 2.5px 5px black;
+    border-radius: 10px;
+}
+#hexglheader{
+    text-align: left;
+    width: 1502px;
+    background-color: rgba(32, 32, 32, 0.5);
+    color: white;
+    padding: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    margin-bottom: 5px;
+    cursor: grab;
+}
