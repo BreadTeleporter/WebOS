@@ -1,3 +1,5 @@
+Big changes are coming in WebOS 0.3 to allow for better multitasking!
+
 # WebOS
 WebOS is the ultimate operating system for your web browser.
 
