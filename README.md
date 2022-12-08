@@ -1,4 +1,4 @@
-Big changes are coming in WebOS 0.3 to allow for better multitasking!
+# 🎉 0.3 has been released! 🎉
 
 # WebOS
 WebOS is the ultimate operating system for your web browser.
@@ -26,6 +26,9 @@ All of your programs are in the Start Menu, at the bottom left corner of your sc
 Please report any bugs on the Issues page.
 
 # Changelog
+
+## Version 0.3
+Now using winbox.js for windows
 
 ## Version 0.2
 Added Taskbar
