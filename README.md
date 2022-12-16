@@ -21,9 +21,39 @@ You can also clone this github repo and use it locally.
 
 All of your programs are in the Start Menu, at the bottom left corner of your screen.
 
+## Upcoming Features
+
+### Programs
+
+- [ ] Code editor
+- [X] Support for custom applications
+- [ ] Add GUI to open custom applications
+- [ ] Add ability to install custom applications
+- [ ] More games
+
+### Taskbar and Start Menu
+
+- [ ] Add clock to taskbar
+- [ ] Add custom usernames
+
+### Desktop
+
+- [ ] Add support for adding icons to desktop
+- [ ] Add support for dragging icons on the desktop
+- [ ] Add support for custom wallpapers
+
+### Misc
+
+- [ ] Use browser storage to store files
+- [ ] Re-add rounded corners to windows
+- [ ] Enable custom themes
+- [ ] Performance improvments
+
 ## I found a bug! What should I do?
 
 Please report any bugs on the Issues page.
+
+
 
 # Changelog
 
