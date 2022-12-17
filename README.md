@@ -1,4 +1,4 @@
-# 🎉 0.3 has been released! 🎉
+# 🎉 0.4 has been released! 🎉
 
 # WebOS
 WebOS is the ultimate operating system for your web browser.
@@ -27,7 +27,7 @@ All of your programs are in the Start Menu, at the bottom left corner of your sc
 
 - [ ] Code editor
 - [X] Support for custom applications
-- [ ] Add GUI to open custom applications
+- [X] Add GUI to open custom applications
 - [ ] Add ability to install custom applications
 - [ ] More games
 
@@ -56,6 +56,11 @@ Please report any bugs on the Issues page.
 
 
 # Changelog
+
+## Version 0.4
+Added Linux (Unstable)
+
+Added custom apps
 
 ## Version 0.3
 Now using winbox.js for windows
