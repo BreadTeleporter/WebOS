@@ -29,6 +29,8 @@
         <p onclick="loadapp('apps/tetris.html', 'Tetris', 350, 700)">Tetris</p>
         <p onclick="loadapp('apps/calc.html', 'Calculator', 600, 450)">Calculator</p>
         <p onclick="loadapp('apps/js.html', 'JavaScript')">JavaScript</p>
+        <p onclick="loadlinux()">Linux - WIP</p>
+        <p onclick="customapp()" style="position: absolute; bottom: 0;">Custom App</p>
     </div>
     <div class="taskbar">
         <button id="startbuttonshow" onclick="showstart()">Start</button>
@@ -61,49 +63,6 @@
     function remove(id){
         document.getElementById(id).style = "display: none;"
     }
-    // Make the DIV element draggable:
-    dragElement(document.getElementById("log"));
-
-    function dragElement(elmnt) {
-        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-        if (document.getElementById(elmnt.id + "header")) {
-            // if present, the header is where you move the DIV from:
-            document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-        } else {
-            // otherwise, move the DIV from anywhere inside the DIV:
-            elmnt.onmousedown = dragMouseDown;
-        }
-
-        function dragMouseDown(e) {
-            e = e || window.event;
-            e.preventDefault();
-            // get the mouse cursor position at startup:
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            document.onmouseup = closeDragElement;
-            // call a function whenever the cursor moves:
-            document.onmousemove = elementDrag;
-        }
-
-        function elementDrag(e) {
-            e = e || window.event;
-            e.preventDefault();
-            // calculate the new cursor position:
-            pos1 = pos3 - e.clientX;
-            pos2 = pos4 - e.clientY;
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            // set the element's new position:
-            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-        }
-
-        function closeDragElement() {
-            // stop moving when mouse button is released:
-            document.onmouseup = null;
-            document.onmousemove = null;
-    }
-    }
     function loadapp(appname, displayname, x, y){
         console.log("loading app " + appname)
         new WinBox(displayname, {
@@ -114,6 +73,21 @@
             url: appname
         })
         hidestart()
+    }
+    function customapp(){
+        var input = prompt("App URL?")
+        loadapp(input, "Custom App", "", "")
+    }
+    // This needs to be a custom function so we can ask the user
+    // if they want it to work or not
+    function loadlinux(){
+        const yesno = confirm("Do you want to load linux in fullscreen (yes) or in a window (no/cancel), keyboard input does not work in windowed mode")
+        if (yesno){
+            window.location.replace("apps/Linux/Linux.htm")
+        } else{
+            loadapp('apps/Linux/Linux.htm', 'Linux - WIP', 1280, 800)
+        }
+        
     }
 </script>
 <script src="app.js"></script>

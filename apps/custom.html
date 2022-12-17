@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        font-family: 'Courier New', Courier, monospace;
+    }
+</style>
+<body>
+    <label for="text">App URL + Arguments: </label><input id="text" type="text"> <button onclick="load(document.getElementById('text').innerText)">Ok</button>
+</body>
+<script>
+    function load(url){
+        loadapp(url)
+    }
+</script>
+</html>
