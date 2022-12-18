@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .sidebar{
+        width: 250px;
+        height: 100%;
+        border-width: 0px;
+        border-right: 2.5px;
+        border-color: black;
+        border-style: solid;
+        font-family: 'Courier New', Courier, monospace;
+        z-index: 999;
+        position: fixed;
+    }
+    .content{
+        padding-left: 250px;
+    }
+    .sidebar a{
+        padding: auto;
+        font-size: 50px;
+        width: 100%;
+        padding: 5px;
+    }
+    .sidebar a:hover{
+        padding: auto;
+        font-size: 50px;
+        width: 100%;
+        color: white;
+        cursor: pointer;
+    }
+    #abouttext{
+        position: absolute;
+        bottom: 0;
+    }
+    body{
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #999;
+        overflow: hidden;
+    }
+    html{
+        height: 100%;
+    }
+    #about{
+        width: 100%;
+        height: 100%;
+    }
+    #about iframe{
+        width: 100%;
+        height: 100vh;
+        border-width: 0px;
+    }
+</style>
+<body>
+    <div class="sidebar">
+        <a>Home</a><br>
+        <a>Themes</a><br>
+        <a id="abouttext">About</a><br>
+    </div>
+    <div class="content">
+        <div id="home">
+
+        </div>
+        <div id="themes">
+    
+        </div>
+        <div id="about">
+            <iframe src="about.html"></iframe>
+        </div>
+    </div>
+
+</body>
+</html>
