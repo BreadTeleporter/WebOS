@@ -24,14 +24,14 @@
     </div>
     <div class="startmenu" id="startmenu">
         <img src="img/profile.png" width="64" id="profile">
-        <p onclick="loadapp('apps/about.html', 'About WebOS', 510, 500)"id="webosstarttext">WebOS</p>
-        <p onclick="loadapp('apps/textedit.html', 'TextEdit')">TextEdit</p>
-        <p onclick="loadapp('apps/tetris.html', 'Tetris', 350, 700)">Tetris</p>
-        <p onclick="loadapp('apps/calc.html', 'Calculator', 600, 450)">Calculator</p>
-        <p onclick="loadapp('apps/js.html', 'JavaScript')">JavaScript</p>
-        <p onclick="loadapp('apps/settings.html', 'Settings')">Settings</p>
-        <p onclick="loadlinux()">Linux - WIP</p>
-        <p onclick="customapp()" style="position: absolute; bottom: 0;">Custom App</p>
+        <p onclick="loadapp('apps/about.html', 'About WebOS', 510, 500)"id="webosstarttext">WebOS</p><br>
+        <img src="img/minetypes/txt.png" width="16"> <a onclick="loadapp('apps/textedit.html', 'TextEdit')">TextEdit</a><br>
+        <img src="img/apps/ksirtet.png" width="16"> <a onclick="loadapp('apps/tetris.html', 'Tetris', 350, 700)">Tetris</a><br>
+        <img src="img/apps/calc.png" width="16"> <a onclick="loadapp('apps/calc.html', 'Calculator', 600, 450)">Calculator</a><br>
+        <img src="img/minetypes/html.png" width="16"> <a onclick="loadapp('apps/js.html', 'JavaScript')">JavaScript</a><br>
+        <img src="img/apps/Service_Manager.png" width="16"> <a onclick="loadapp('apps/settings.html', 'Settings')">Settings</a><br>
+        <img src="img/Tux.png" width="16"> <a onclick="loadlinux()">Linux - WIP</a><br>
+        <a onclick="customapp()" style="position: absolute; bottom: 0;">Custom App</a><br>
     </div>
     <div class="taskbar">
         <button id="startbuttonshow" onclick="showstart()">Start</button>
@@ -86,7 +86,7 @@
         if (yesno){
             window.location.replace("apps/Linux/Linux.htm")
         } else{
-            loadapp('apps/Linux/Linux.htm', 'Linux - WIP', 1280, 800)
+            loadapp('apps/Linux/Linux.htm', 'Linux - WIP', 640, 400)
         }
         
     }
