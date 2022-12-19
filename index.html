@@ -30,16 +30,25 @@
         <img src="img/apps/calc.png" width="16"> <a onclick="loadapp('apps/calc.html', 'Calculator', 600, 450)">Calculator</a><br>
         <img src="img/minetypes/html.png" width="16"> <a onclick="loadapp('apps/js.html', 'JavaScript')">JavaScript</a><br>
         <img src="img/apps/Service_Manager.png" width="16"> <a onclick="loadapp('apps/settings.html', 'Settings')">Settings</a><br>
-        <img src="img/Tux.png" width="16"> <a onclick="loadlinux()">Linux - WIP</a><br>
+        <img src="img/Tux.png" width="16" height="16"> <a onclick="loadlinux()">Linux - WIP</a><br>
         <a onclick="customapp()" style="position: absolute; bottom: 0;">Custom App</a><br>
     </div>
     <div class="taskbar">
         <button id="startbuttonshow" onclick="showstart()">Start</button>
         <button id="startbuttonhide" onclick="hidestart()">Start</button>
+        <div id="clock"></div>
     </div>
 </body>
 <script src="https://rawcdn.githack.com/nextapps-de/winbox/0.2.6/dist/winbox.bundle.min.js"></script>
 <script>
+    window.onerror = function(message, url, linenumber) {
+        new WinBox("Error", {
+            modal: true,
+            height: "255px",
+            width: "768px",
+            html: "<p style='text-align: center; font-size: 17.5px;'>Error on line: " + linenumber + ", " + message + "</p>"
+        });
+    }
     console.log("test");
     document.addEventListener("contextmenu", function (e) {
         e.preventDefault();
@@ -79,8 +88,8 @@
         var input = prompt("App URL?")
         loadapp(input, "Custom App", "", "")
     }
-    // This needs to be a custom function so we can ask the user
-    // if they want it to work or not
+    // This needs to be a custom function so we can ask the user if they want it to work or not
+    // When the bug is fixed, this can just be replaced with a call to the loadapp() function.
     function loadlinux(){
         const yesno = confirm("Do you want to load linux in fullscreen (yes) or in a window (no/cancel), keyboard input does not work in windowed mode")
         if (yesno){
@@ -90,6 +99,16 @@
         }
         
     }
+    let date = new Date();
+    date.setSeconds(date.getSeconds() + 1);
+
+    let time = `${date.getHours()}:${date.getMinutes()}`;
+    document.getElementById('clock').innerText = time;
+    setInterval(() => {
+        date.setSeconds(date.getSeconds() + 1);
+
+        let time = `${date.getHours()}:${date.getMinutes()}`;
+        document.getElementById('clock').innerText = time;
+    }, 1000);
 </script>
-<script src="app.js"></script>
 </html>

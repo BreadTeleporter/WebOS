@@ -1,3 +1,4 @@
+/* There are lots of random bits of code in here from before the winbox.js transition.*/
 body{
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
@@ -24,11 +25,14 @@ figure{
     height: fit-content;
     text-align: center;
     color: white;
-    text-shadow: 1px 1px 2px black;
 }
 figure:hover{
-    background-color: rgba(128, 128, 128, 0.25);
+    background-color: rgba(0, 128, 255, .15);  
+    backdrop-filter: blur(2px);
     cursor: pointer;
+}
+figcaption{
+    text-shadow: 0 0 15px #000;
 }
 .taskbar{
     border-bottom: 0px;
@@ -45,6 +49,7 @@ figure:hover{
     backdrop-filter: blur(5px);
     z-index: 999;
     margin-top: 30px;
+    box-shadow: 0 0 30px rgb(31, 31, 31);
 }
 #start{
     color: white;
@@ -204,6 +209,8 @@ a {
     border-style: solid;
     display: none;
     white-space: nowrap;
+    box-shadow: 0 0 30px rgb(31, 31, 31);
+    z-index: 999;
 }
 
 
@@ -211,11 +218,15 @@ button:hover{
     cursor: pointer;
 }
 #startbuttonshow{
-    font-size: 20px;
+    background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(2px);
+    font-size: 18px;
     display: block;
 }
 #startbuttonhide{
-    font-size: 20px;
+    background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(2px);
+    font-size: 18px;
     display: none;
 }
 #webosstarttext{
@@ -375,7 +386,7 @@ button:hover{
     /* set the width of window border via margin: */
     margin: 4px;
     color: #000;
-    background-color: rgba(128, 128, 128, .95);  
+    background-color: rgba(200, 200, 200, .95);  
     backdrop-filter: blur(2px);
 }
 .wb-min {
@@ -394,7 +405,13 @@ button:hover{
     background-color: rgba(255, 255, 255, .15);  
     backdrop-filter: blur(2px);
     border-radius: 10px 10px 0px 0px;
+    box-shadow: 0 0 30px rgb(31, 31, 31);
 }
 #startmenu a{
     cursor: pointer;
+}
+#clock{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
 }
