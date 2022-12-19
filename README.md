@@ -23,6 +23,7 @@ All of your programs are in the Start Menu, at the bottom left corner of your sc
 
 ## Upcoming Features
 
+- [ ] UI Redesign
 ### Programs
 
 - [ ] Code editor
